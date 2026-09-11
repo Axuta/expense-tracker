@@ -64,7 +64,11 @@ function App() {
         onMonthChange={setMonthFilter}
       />
       <SummaryPanel expenses={filteredExpenses} />
-      <ExpenseList expenses={filteredExpenses} onDelete={deleteExpense} />
+	  <ExpenseList
+		expenses={filteredExpenses}
+		onDelete={deleteExpense}
+		onEdit={startEdit}
+	  />
     </div>
   );
 }

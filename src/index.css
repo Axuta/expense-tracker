@@ -64,3 +64,45 @@ form {
   text-align: center;
   color: #999;
 }
+
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 16px 0;
+}
+
+.summary {
+  max-width: 520px;
+  margin: 0 auto 20px;
+  padding: 16px;
+  background: white;
+  border-radius: 8px;
+}
+
+.summary ul {
+  list-style: none;
+  padding: 0;
+}
+
+.summary li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.bar {
+  flex: 1;
+  height: 8px;
+  background: #eee;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  background: #6d4aff;
+  border-radius: 4px;
+}

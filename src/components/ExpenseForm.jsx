@@ -1,12 +1,20 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const CATEGORIES = ["Food", "Transport", "Entertainment", "Health", "Other"];
 
-function ExpenseForm({ onAdd }) {
+function ExpenseForm({ onAdd, onUpdate, editingExpense, onCancelEdit }) {
   const [amount, setAmount] = useState("");
   const [category, setCategory] = useState("Food");
   const [comment, setComment] = useState("");
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    if (editingExpense) {
+      setAmount(editingExpense.amount);
+      setCategory(editingExpense.category);
+      setComment(editingExpense.comment);
+    }
+  }, [editingExpense]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,15 +24,23 @@ function ExpenseForm({ onAdd }) {
       return;
     }
 
-    const newExpense = {
-      id: crypto.randomUUID(),
-      amount: Number(amount),
-      category,
-      comment: comment.trim(),
-      date: new Date().toISOString(),
-    };
+    if (editingExpense) {
+      onUpdate({
+        ...editingExpense,
+        amount: Number(amount),
+        category,
+        comment: comment.trim(),
+      });
+    } else {
+      onAdd({
+        id: crypto.randomUUID(),
+        amount: Number(amount),
+        category,
+        comment: comment.trim(),
+        date: new Date().toISOString(),
+      });
+    }
 
-    onAdd(newExpense);
     setAmount("");
     setComment("");
     setError("");
@@ -32,7 +48,7 @@ function ExpenseForm({ onAdd }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2>Add Expense</h2>
+      <h2>{editingExpense ? "Edit Expense" : "Add Expense"}</h2>
 
       <input
         type="number"
@@ -58,9 +74,16 @@ function ExpenseForm({ onAdd }) {
         onChange={(e) => setComment(e.target.value)}
       />
 
-      {error && <p className="error">{error}</p>}
+      <div className="form-buttons">
+        <button type="submit">{editingExpense ? "Save" : "Add"}</button>
+        {editingExpense && (
+          <button type="button" onClick={onCancelEdit}>
+            Cancel
+          </button>
+        )}
+      </div>
 
-      <button type="submit">Add</button>
+      {error && <p className="error">{error}</p>}
     </form>
   );
 }

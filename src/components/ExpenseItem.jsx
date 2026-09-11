@@ -1,10 +1,11 @@
-function ExpenseItem({ expense, onDelete }) {
+function ExpenseItem({ expense, onDelete, onEdit }) {
   return (
     <div className="expense-item">
       <span className="expense-amount">{expense.amount.toFixed(2)} BYN</span>
       <span className="expense-category">{expense.category}</span>
       <span className="expense-comment">{expense.comment}</span>
       <button onClick={() => onDelete(expense.id)}>✕</button>
+      <button onClick={() => onEdit(expense)}>✎</button>
     </div>
   );
 }

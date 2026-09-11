@@ -1,5 +1,5 @@
 function Header() {
-  return <h2>Expense Tracker</h2>;
+  return <h2 className="app-header">Expense Tracker</h2>;
 }
 
 export default Header;

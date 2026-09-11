@@ -19,3 +19,43 @@ form {
   color: #d32f2f;
   margin: 0;
 }
+
+.expense-list {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.expense-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: white;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.expense-amount {
+  font-weight: bold;
+  min-width: 90px;
+}
+
+.expense-category {
+  background: #eee;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 14px;
+}
+
+.expense-item button {
+  margin-left: auto;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.empty {
+  text-align: center;
+  color: #999;
+}

@@ -1,16 +1,30 @@
-# React + Vite
+# Expense Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A single-page React application for tracking personal expenses with filtering
+and category-based analytics. Data is persisted locally in the browser.
 
-Currently, two official plugins are available:
+## Features
+- Add, edit and delete expenses
+- Controlled form with input validation
+- Filter by category and month
+- Category summary with percentage breakdown
+- Data persistence via localStorage
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tech Stack
+- React 18 (hooks: useState, useEffect, useMemo)
+- Vite
+- Plain CSS (no UI libraries)
 
-## React Compiler
+## Getting Started
+npm install
+npm run dev
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## What I Learned / Key Concepts
+- Lifting state up and passing callbacks to child components
+- Controlled forms and conditional rendering
+- Immutable state updates (spread, filter, map)
+- Persisting state to localStorage with lazy initialization
+- Memoized derived data with useMemo
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+![Screenshot](./screenshot.png)
+Live Demo https://expense-tracker-kappa-nine-29.vercel.app
